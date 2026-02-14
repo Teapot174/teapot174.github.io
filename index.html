@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP-HACK</title>
+
+    <script type="module" src="https://unpkg.com/esp-web-tools@9.4.3/dist/web/install-button.js?module"></script>
+
+    <style>
+        :root {
+            --bg: #000000;
+            --text: #ffffff;
+            --border: #555555;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        body {
+            background: #000;
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 680px;
+            padding: 80px 30px 70px;
+            border: 3px solid var(--border);
+            border-radius: 24px;
+            background: #0a0a0a;
+            box-shadow: 0 0 50px rgba(255,255,255,0.07);
+            position: relative;
+            z-index: 2;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .header h1 {
+            font-family: 'Fixedsys', 'Courier New', monospace;
+            font-size: 4.2rem;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            text-shadow: 0 0 12px #fff;
+        }
+
+        .header p {
+            font-size: 1.15rem;
+            opacity: 0.75;
+            letter-spacing: 3px;
+            margin-top: 8px;
+        }
+
+        .choice {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            max-width: 520px;
+            margin: 50px auto;
+        }
+
+        .option-btn {
+            flex: 1;
+            padding: 18px 30px;
+            background: transparent;
+            border: 3px solid var(--border);
+            border-radius: 16px;
+            color: var(--text);
+            font-family: 'Fixedsys', 'Courier New', monospace;
+            font-size: 1.45rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .option-btn:hover { border-color: #888; }
+        .option-btn.active {
+            border-color: #fff;
+            color: #fff;
+            box-shadow: 0 0 30px rgba(255,255,255,0.5);
+        }
+
+        esp-web-install-button {
+            display: block;
+            margin: 60px auto 0;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        esp-web-install-button::part(button) {
+            background: transparent;
+            color: #fff;
+            border: 3px solid #fff;
+            border-radius: 16px;
+            font-family: 'Fixedsys', 'Courier New', monospace;
+            font-size: 1.65rem;
+            padding: 22px 60px;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+
+        esp-web-install-button::part(button):hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 40px #fff;
+        }
+
+        #version-info {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .crt {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: 
+                linear-gradient(rgba(255,255,255,0.025) 50%, transparent 50%),
+                linear-gradient(transparent 50%, rgba(255,255,255,0.015) 50%);
+            background-size: 100% 4px;
+            animation: 
+                scan-up 7s linear infinite,
+                flicker 0.12s infinite alternate;
+        }
+
+        @keyframes scan-up {
+            0%   { background-position: 0 100vh; }
+            100% { background-position: 0 0; }
+        }
+
+        @keyframes flicker {
+            0%   { opacity: 0.96; }
+            100% { opacity: 1; }
+        }
+
+        .crt::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 70%, rgba(0,0,0,0.6) 100%);
+        }
+    </style>
+</head>
+<body>
+
+<div class="crt"></div>
+
+<div class="container">
+    <div class="header">
+        <h1>ESP-HACK</h1>
+        <p>SH1106 / SSD1306</p>
+    </div>
+
+    <div class="choice">
+        <button class="option-btn active" data-type="sh">SH1106</button>
+        <button class="option-btn" data-type="ssd">SSD1306</button>
+    </div>
+
+    <esp-web-install-button id="install-btn"></esp-web-install-button>
+
+    <div id="version-info"></div>
+</div>
+
+<script>
+    const installBtn = document.getElementById('install-btn');
+    const optionBtns = document.querySelectorAll('.option-btn');
+    const versionInfo = document.getElementById('version-info');
+
+    const shBin = 'esp-hack_v0.6-sh.bin';
+    const ssdBin = 'esp-hack_v0.6-ssd.bin';
+
+    let currentType = 'sh';
+    let currentBin = shBin;
+
+    function getVersion(binName) {
+        const match = binName.match(/v([\d.]+)/);
+        return match ? 'v' + match[1] : 'unknown';
+    }
+
+    function createManifestUrl() {
+        currentBin = currentType === 'sh' ? shBin : ssdBin;
+        const base = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+        const firmwareUrl = base + currentBin;
+
+        const manifest = {
+            "name": "ESP-HACK",
+            "new_install_prompt_erase": true,
+            "builds": [{
+                "chipFamily": "ESP32",
+                "parts": [{ "path": firmwareUrl, "offset": 0 }]
+            }]
+        };
+
+        const blob = new Blob([JSON.stringify(manifest, null, 2)], { type: 'application/json' });
+        return URL.createObjectURL(blob);
+    }
+
+    function updateFirmware() {
+        const oldUrl = installBtn.getAttribute('manifest');
+        if (oldUrl) URL.revokeObjectURL(oldUrl);
+        installBtn.setAttribute('manifest', createManifestUrl());
+
+        versionInfo.textContent = `${getVersion(currentBin)} (${currentType.toUpperCase()})`;
+    }
+
+    optionBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            optionBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentType = btn.dataset.type;
+            updateFirmware();
+        });
+    });
+
+    updateFirmware();
+
+    console.log = console.warn = console.error = () => {};
+</script>
+
+</body>
+</html>
