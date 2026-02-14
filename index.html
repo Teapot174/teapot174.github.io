@@ -187,6 +187,7 @@
     let latestFirmwares = { sh: null, ssd: null };
     let currentType = 'sh';
 
+    // Получаем самые свежие прошивки с GitHub
     async function loadLatestFirmwares() {
         try {
             const response = await fetch('https://api.github.com/repos/Teapot174/ESP-HACK/releases');
@@ -220,9 +221,10 @@
             });
 
             updateVersionDisplay();
-            updateFirmware();
+            updateFirmware(); 
         } catch (err) {
             versionInfo.textContent = 'Не удалось загрузить версии с GitHub';
+            console.error(err);
         }
     }
 
