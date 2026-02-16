@@ -53,6 +53,11 @@
             text-shadow: 0 0 12px #fff;
         }
 
+        .header h1 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
         .header p {
             font-size: 1.15rem;
             opacity: 0.75;
@@ -94,34 +99,38 @@
             margin: 60px auto 0;
             width: 100%;
             max-width: 420px;
+            text-align: center;
         }
 
         esp-web-install-button::part(button) {
-            background: transparent;
-            color: #fff;
-            border: 3px solid #fff;
+            background: #ffffff !important;
+            color: #000000 !important;
+            border: 3px solid #ffffff !important;
             border-radius: 14px;
             font-family: 'Fixedsys', 'Courier New', monospace;
-            font-size: 1.65rem;
-            padding: 22px 60px;
+            font-size: 2rem !important;
+            padding: 24px 48px !important;
             text-transform: uppercase;
             letter-spacing: 6px;
-            width: 100%;
+            width: 100% !important;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.4s ease;
+            margin: 0 auto !important;
+            box-sizing: border-box;
         }
 
         esp-web-install-button::part(button):hover {
-            background: #fff;
-            color: #000;
+            background: #000000 !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
             box-shadow: 0 0 40px #fff;
         }
 
         #version-info {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 20px;
             font-size: 1.2rem;
             opacity: 0.8;
         }
@@ -164,7 +173,7 @@
 
 <div class="container">
     <div class="header">
-        <h1>ESP-HACK</h1>
+        <h1><a href="https://github.com/Teapot174/ESP-HACK" target="_blank" rel="noopener">ESP-HACK</a></h1>
         <p>ESP32 Flasher</p>
     </div>
 
