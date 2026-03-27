@@ -24,9 +24,9 @@
           "openOn": [{ "file": "page-features.html" }],
           "children": [
             { "label": "📶 Wi‑Fi", "href": "page-features.html#wifi" },
-            { "label": "🟦 Bluetooth / BLE", "href": "page-features.html#bluetooth" },
+            { "label": "📱 Bluetooth / BLE", "href": "page-features.html#bluetooth" },
             { "label": "📻 Sub‑GHz (CC1101)", "href": "page-features.html#subghz" },
-            { "label": "🌈 IR", "href": "page-features.html#ir" },
+            { "label": "📺 IR", "href": "page-features.html#ir" },
             { "label": "🧩 GPIO / modules", "href": "page-features.html#gpio" },
             { "label": "⚙️ Settings", "href": "page-features.html#settings" }
           ]
