@@ -155,30 +155,39 @@
     );
   }
 
-  // Persist opened subsections across page navigation.
-  var STORAGE_KEY = "wikiNavOpenPanelsV1";
+  // Keep only one expanded section across navigation.
+  var STORAGE_KEY = "wikiNavOpenPanelV2";
 
-  function loadStoredOpenSet() {
+  function loadStoredOpenPanel() {
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return {};
-      var arr = JSON.parse(raw);
-      if (!Array.isArray(arr)) return {};
-      var set = {};
-      arr.forEach(function (x) {
-        if (typeof x === "string" && x) set[x] = true;
-      });
-      return set;
+      return typeof raw === "string" && raw ? raw : "";
     } catch (e) {
-      return {};
+      return "";
     }
   }
 
-  function saveStoredOpenSet(set) {
+  function saveStoredOpenPanel(panelId) {
     try {
-      var arr = Object.keys(set || {});
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+      if (panelId) localStorage.setItem(STORAGE_KEY, panelId);
+      else localStorage.removeItem(STORAGE_KEY);
     } catch (e) {}
+  }
+
+  function setPanelState(btn, panel, open) {
+    if (!btn || !panel) return;
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    panel.classList.toggle("nav-sub--open", open);
+  }
+
+  function closeOtherPanels(exceptId) {
+    document.querySelectorAll(".nav-expandable__toggle").forEach(function (otherBtn) {
+      var otherId = otherBtn.getAttribute("aria-controls");
+      if (!otherId || otherId === exceptId) return;
+      var otherPanel = document.getElementById(otherId);
+      if (!otherPanel) return;
+      setPanelState(otherBtn, otherPanel, false);
+    });
   }
 
   function bindToggles() {
@@ -189,17 +198,12 @@
       if (!panel) return;
       var isOpen = panel.classList.contains("nav-sub--open");
       var nextOpen = !isOpen;
-      btn.setAttribute("aria-expanded", nextOpen ? "true" : "false");
-      panel.classList.toggle("nav-sub--open", nextOpen);
-
-      // Update persisted open set.
-      var openSet = loadStoredOpenSet();
-      if (nextOpen) openSet[id] = true;
-      else delete openSet[id];
-      saveStoredOpenSet(openSet);
+      if (nextOpen) closeOtherPanels(id);
+      setPanelState(btn, panel, nextOpen);
+      saveStoredOpenPanel(nextOpen ? id : "");
     }
 
-    // Toggle buttons: never reload, never close other groups.
+    // Toggle buttons: never reload, always behave like an accordion.
     document.querySelectorAll(".nav-expandable__toggle").forEach(function (btn) {
       btn.addEventListener("click", function (e) {
         e.preventDefault();
@@ -254,23 +258,18 @@
     }).join("");
     container.innerHTML = html;
 
-    // Apply persisted open panels after render (so we don't lose them on navigation).
-    var openSet = loadStoredOpenSet();
-    Object.keys(openSet).forEach(function (panelId) {
-      var panel = document.getElementById(panelId);
+    var currentOpenPanel = document.querySelector(".nav-sub.nav-sub--open");
+    var storedPanelId = loadStoredOpenPanel();
+    var panelIdToOpen = currentOpenPanel && currentOpenPanel.id ? currentOpenPanel.id : storedPanelId;
+
+    document.querySelectorAll(".nav-expandable__toggle").forEach(function (btn) {
+      var panelId = btn.getAttribute("aria-controls");
+      var panel = panelId ? document.getElementById(panelId) : null;
       if (!panel) return;
-      panel.classList.add("nav-sub--open");
-      var btn = document.querySelector('.nav-expandable__toggle[aria-controls="' + panelId + '"]');
-      if (btn) btn.setAttribute("aria-expanded", "true");
+      setPanelState(btn, panel, panelId === panelIdToOpen);
     });
 
-    // Also persist panels that are open by default for the current page
-    // (because the user might open them just by navigating, not by clicking).
-    document.querySelectorAll(".nav-sub.nav-sub--open").forEach(function (panel) {
-      if (!panel || !panel.id) return;
-      openSet[panel.id] = true;
-    });
-    saveStoredOpenSet(openSet);
+    saveStoredOpenPanel(panelIdToOpen);
 
     bindToggles();
   }

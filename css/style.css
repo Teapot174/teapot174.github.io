@@ -292,14 +292,14 @@ h4 {
 }
 
 .nav-sub a[aria-current="page"] {
-  background: #4a525e;
-  color: #ffffff;
-  font-weight: 500;
+  background: transparent;
+  color: var(--gh-fg-muted);
+  font-weight: 400;
 }
 
 .nav-sub a[aria-current="page"]:hover {
-  background: #4a525e;
-  color: #ffffff;
+  background: var(--gh-surface-hover);
+  color: var(--gh-fg);
 }
 
 .nav-sub a:active {
