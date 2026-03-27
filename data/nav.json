@@ -11,7 +11,7 @@
         {
           "type": "expand",
           "id": "flash",
-          "label": "Установка / прошивка",
+          "label": "Прошивка",
           "href": "page-flash.html",
           "openOn": [
             {
@@ -20,7 +20,7 @@
           ],
           "children": [
             {
-              "label": "Wiki-Flasher",
+              "label": "WIKI-Flasher",
               "href": "page-flash.html#wiki-flasher",
               "type": "link"
             },
@@ -39,7 +39,7 @@
         {
           "type": "expand",
           "id": "firmware-features",
-          "label": "Функции прошивки",
+          "label": "Функции",
           "href": "page-features.html",
           "openOn": [
             {

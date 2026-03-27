@@ -216,8 +216,7 @@
     });
     var title = cfg.sectionTitle || "Assets";
     var subtitleParts = [];
-    if (release.tag_name)
-      subtitleParts.push((isEn() ? "Release: " : "Релиз: ") + release.tag_name);
+    if (release.tag_name) subtitleParts.push("Release: " + release.tag_name);
     if (release.name && release.name !== release.tag_name) subtitleParts.push(release.name);
     if (release.published_at) subtitleParts.push(fmtDate(release.published_at));
     var subtitle = subtitleParts.filter(Boolean).join(" · ");

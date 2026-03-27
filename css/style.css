@@ -275,13 +275,6 @@ h4 {
   margin: 2px 0 6px;
 }
 
-/* Не выделяем "подраздел" как выбранный (в том числе при aria-current="page"). */
-.nav-sub a[aria-current="page"] {
-  background: transparent !important;
-  color: var(--gh-fg-muted) !important;
-  font-weight: 400 !important;
-}
-
 .nav-sub a {
   font-size: 14px;
   padding: 6px 10px;
@@ -294,7 +287,19 @@ h4 {
 }
 
 .nav-sub a:hover {
+  background: var(--gh-surface-hover);
   color: var(--gh-fg);
+}
+
+.nav-sub a[aria-current="page"] {
+  background: #4a525e;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.nav-sub a[aria-current="page"]:hover {
+  background: #4a525e;
+  color: #ffffff;
 }
 
 .nav-sub a:active {

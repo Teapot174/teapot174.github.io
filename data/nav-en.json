@@ -7,11 +7,11 @@
         {
           "type": "expand",
           "id": "flash",
-          "label": "Install / flashing",
+          "label": "Flashing",
           "href": "page-flash.html",
           "openOn": [{ "file": "page-flash.html" }],
           "children": [
-            { "label": "Wiki-Flasher", "href": "page-flash.html#wiki-flasher" },
+            { "label": "WIKI-Flasher", "href": "page-flash.html#wiki-flasher" },
             { "label": "Web-Flasher", "href": "page-flash.html#web-flasher" },
             { "label": "qESP-HACK", "href": "page-flash.html#qesphack" }
           ]
@@ -19,7 +19,7 @@
         {
           "type": "expand",
           "id": "firmware-features",
-          "label": "Firmware features",
+          "label": "Features",
           "href": "page-features.html",
           "openOn": [{ "file": "page-features.html" }],
           "children": [
