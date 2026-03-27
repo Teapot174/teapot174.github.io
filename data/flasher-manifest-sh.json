@@ -1,0 +1,12 @@
+{
+  "name": "ESP-HACK",
+  "version": "latest",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "improv": false,
+      "parts": [{ "path": "../firmware/esp-hack-sh.bin", "offset": 0 }]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "groups": [
+    {
+      "label": "Разделы",
+      "items": [
+        {
+          "type": "link",
+          "label": "Главная",
+          "href": "index.html"
+        },
+        {
+          "type": "expand",
+          "id": "flash",
+          "label": "Установка / прошивка",
+          "href": "page-flash.html",
+          "openOn": [
+            {
+              "file": "page-flash.html"
+            }
+          ],
+          "children": [
+            {
+              "label": "Веб-флешер",
+              "href": "page-flash.html#web-flasher",
+              "type": "link"
+            },
+            {
+              "label": "Универсальный способ",
+              "href": "page-flash.html#universal",
+              "type": "link"
+            },
+            {
+              "label": "qESP-HACK",
+              "href": "page-flash.html#automatic",
+              "type": "link"
+            }
+          ]
+        },
+        {
+          "type": "expand",
+          "id": "firmware-features",
+          "label": "Функции прошивки",
+          "href": "page-features.html",
+          "openOn": [
+            {
+              "file": "page-features.html"
+            }
+          ],
+          "children": [
+            {
+              "label": "📶 Wi‑Fi",
+              "href": "page-features.html#wifi",
+              "type": "link"
+            },
+            {
+              "label": "🟦 Bluetooth / BLE",
+              "href": "page-features.html#bluetooth",
+              "type": "link"
+            },
+            {
+              "label": "📻 Sub‑GHz (CC1101)",
+              "href": "page-features.html#subghz",
+              "type": "link"
+            },
+            {
+              "label": "🌈 IR",
+              "href": "page-features.html#ir",
+              "type": "link"
+            },
+            {
+              "label": "🧩 GPIO / модули",
+              "href": "page-features.html#gpio",
+              "type": "link"
+            },
+            {
+              "label": "⚙️ Настройки",
+              "href": "page-features.html#settings",
+              "type": "link"
+            }
+          ]
+        },
+        {
+          "type": "expand",
+          "id": "build",
+          "label": "Сборка",
+          "href": "page-build.html",
+          "openOn": [
+            {
+              "file": "page-build.html"
+            }
+          ],
+          "children": [
+            {
+              "label": "PCB",
+              "href": "page-build.html#pcb",
+              "type": "link"
+            },
+            {
+              "label": "Необходимые компоненты",
+              "href": "page-build.html#required-components",
+              "type": "link"
+            },
+            {
+              "label": "Схема подключения",
+              "href": "page-build.html#connection-scheme",
+              "type": "link"
+            }
+          ]
+        },
+        {
+          "type": "expand",
+          "id": "modules",
+          "label": "Модули",
+          "href": "page-modules.html",
+          "openOn": [
+            {
+              "file": "page-modules.html"
+            }
+          ],
+          "children": [
+            {
+              "label": "Как подключить NRF24",
+              "href": "page-modules.html#nrf24",
+              "type": "link"
+            }
+          ]
+        },
+        {
+          "type": "link",
+          "label": "Downloads",
+          "href": "page-downloads.html"
+        }
+      ]
+    }
+  ]
+}

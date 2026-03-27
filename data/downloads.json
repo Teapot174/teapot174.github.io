@@ -1,0 +1,31 @@
+{
+  "releasesPageUrl": "https://github.com/Teapot174/ESP-HACK/releases",
+  "sections": [
+    {
+      "title": "Assets",
+      "items": [
+        {
+          "name": "esp-hack_v0.8-sh.bin",
+          "url": "https://github.com/Teapot174/ESP-HACK/releases/latest/download/esp-hack_v0.8-sh.bin",
+          "size": "1.36 MB"
+        },
+        {
+          "name": "esp-hack_v0.8-ssd.bin",
+          "url": "https://github.com/Teapot174/ESP-HACK/releases/latest/download/esp-hack_v0.8-ssd.bin"
+        },
+        {
+          "name": "qESPHACK.exe",
+          "url": "https://github.com/Teapot174/ESP-HACK/releases/latest/download/qESPHACK.exe"
+        },
+        {
+          "name": "Source code (zip)",
+          "url": "https://github.com/Teapot174/ESP-HACK/archive/refs/heads/main.zip"
+        },
+        {
+          "name": "Source code (tar.gz)",
+          "url": "https://github.com/Teapot174/ESP-HACK/archive/refs/heads/main.tar.gz"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Downloads - ESP-HACK</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/site-nav.js?v=2" defer></script>
+    <script src="../js/render-changelog.js?v=2" defer></script>
+    <script src="../js/render-downloads.js?v=2" defer></script>
+  </head>
+  <body>
+    <div class="lang-switch lang-switch--en" role="navigation" aria-label="Language">
+      <div class="lang-switch__track">
+        <span class="lang-switch__thumb" aria-hidden="true"></span>
+        <a href="../page-downloads.html" class="lang-switch__opt">RU</a>
+        <span class="lang-switch__opt lang-switch__opt--current" aria-current="page">EN</span>
+      </div>
+    </div>
+    <div class="shell shell--nav-left">
+      <aside class="sidebar" aria-label="Section navigation">
+        <div class="sidebar__inner">
+          <a class="sidebar__brand" href="https://github.com/Teapot174/ESP-HACK" aria-label="ESP-HACK GitHub">ESP-HACK</a>
+          <nav aria-label="Wiki sections">
+            <div id="site-nav-container"></div>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="content__wrap downloads-page">
+          <h1>Downloads</h1>
+
+          <section
+            id="changelog"
+            class="changelog"
+            aria-labelledby="changelog-heading"
+            data-releases-fallback="https://github.com/Teapot174/ESP-HACK/releases"
+            data-changelog-show-all="true"
+          >
+            <h2 id="changelog-heading">Changelog</h2>
+            <p class="changelog__meta" id="changelog-meta"></p>
+            <div class="changelog__body" id="changelog-body">
+              <p class="changelog__loading">Loading...</p>
+            </div>
+          </section>
+
+          <div class="downloads-page__assets">
+            <h2>Files</h2>
+            <div id="downloads-root" class="downloads-stack" aria-live="polite">
+              <p class="downloads-error">Loading files...</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

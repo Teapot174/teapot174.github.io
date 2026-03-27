@@ -1,0 +1,65 @@
+{
+  "groups": [
+    {
+      "label": "Sections",
+      "items": [
+        { "type": "link", "label": "Home", "href": "index.html" },
+        {
+          "type": "expand",
+          "id": "flash",
+          "label": "Install / flashing",
+          "href": "page-flash.html",
+          "openOn": [{ "file": "page-flash.html" }],
+          "children": [
+            { "label": "Web flasher (this site)", "href": "page-flash.html#web-flasher" },
+            { "label": "Web flasher (external)", "href": "page-flash.html#universal" },
+            { "label": "qESPHACK (automatic)", "href": "page-flash.html#automatic" },
+            { "label": "qESPHACK", "href": "page-flash.html#qesphack" }
+          ]
+        },
+        {
+          "type": "expand",
+          "id": "firmware-features",
+          "label": "Firmware features",
+          "href": "page-features.html",
+          "openOn": [{ "file": "page-features.html" }],
+          "children": [
+            { "label": "📶 Wi‑Fi", "href": "page-features.html#wifi" },
+            { "label": "🟦 Bluetooth / BLE", "href": "page-features.html#bluetooth" },
+            { "label": "📻 Sub‑GHz (CC1101)", "href": "page-features.html#subghz" },
+            { "label": "🌈 IR", "href": "page-features.html#ir" },
+            { "label": "🧩 GPIO / modules", "href": "page-features.html#gpio" },
+            { "label": "⚙️ Settings", "href": "page-features.html#settings" }
+          ]
+        },
+        {
+          "type": "expand",
+          "id": "build",
+          "label": "Build",
+          "href": "page-build.html",
+          "openOn": [{ "file": "page-build.html" }],
+          "children": [
+            { "label": "PCB", "href": "page-build.html#pcb" },
+            { "label": "Required components", "href": "page-build.html#required-components" },
+            { "label": "Connection scheme", "href": "page-build.html#connection-scheme" }
+          ]
+        },
+        {
+          "type": "expand",
+          "id": "modules",
+          "label": "Modules",
+          "href": "page-modules.html",
+          "openOn": [{ "file": "page-modules.html" }],
+          "children": [
+            { "label": "NRF24 wiring", "href": "page-modules.html#nrf24" }
+          ]
+        },
+        {
+          "type": "link",
+          "label": "Downloads",
+          "href": "page-downloads.html"
+        }
+      ]
+    }
+  ]
+}

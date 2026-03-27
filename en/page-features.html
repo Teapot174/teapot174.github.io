@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Firmware Features - ESP-HACK</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/site-nav.js" defer></script>
+  </head>
+  <body>
+    <div class="lang-switch lang-switch--en" role="navigation" aria-label="Language">
+      <div class="lang-switch__track">
+        <span class="lang-switch__thumb" aria-hidden="true"></span>
+        <a href="../page-features.html" class="lang-switch__opt">RU</a>
+        <span class="lang-switch__opt lang-switch__opt--current" aria-current="page">EN</span>
+      </div>
+    </div>
+    <div class="shell shell--nav-left">
+      <aside class="sidebar" aria-label="Section navigation">
+        <div class="sidebar__inner">
+          <a class="sidebar__brand" href="https://github.com/Teapot174/ESP-HACK" aria-label="ESP-HACK GitHub">ESP-HACK</a>
+          <nav aria-label="Wiki sections">
+            <div id="site-nav-container"></div>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="content__wrap">
+          <h1>Firmware Features</h1>
+          <p>
+            ESP-HACK capabilities. The feature set depends on the firmware version and connected modules (CC1101 / NRF24 / IR / SD, etc.).
+          </p>
+
+          <h2 id="wifi">📶 Wi-Fi</h2>
+          <ul>
+            <li><strong>📡 Beacon Spam</strong> - generates "junk" Wi-Fi SSIDs.</li>
+            <li><strong>🕸️ Evil Portal</strong> - an access point with a trap page (entered data is sent to the display).</li>
+            <li><strong>🗺️ Wardriving</strong> - collects network information and saves it to SD (SSID, RSSI, WPA, MAC).</li>
+            <li><strong>📦 Packets</strong> - analyzes packets of the selected network (spectrum).</li>
+          </ul>
+
+          <h2 id="bluetooth">🟦 Bluetooth / BLE</h2>
+          <ul>
+            <li><strong>📣 BLE-Spam</strong> - spams BLE advertisements (iOS/Android/Windows).</li>
+            <li><strong>🧪 BadBLE</strong> - emulates a keyboard over BLE (Ducky Script).</li>
+            <li><strong>🖱️ Mouse</strong> - when connected, emulates a mouse that moves in a circle, square, and so on.</li>
+          </ul>
+
+          <h2 id="subghz">📻 Sub-GHz (CC1101)</h2>
+          <ul>
+            <li><strong>📥 Read</strong> - receives and decodes signals (supported protocols).</li>
+            <li><strong>📤 Send</strong> - sends decoded and RAW signals. Supports `.sub` signals.</li>
+            <li><strong>🎙️ RAW</strong> - records RAW signals.</li>
+            <li><strong>🔎 Analyzer</strong> - analyzes frequencies of remotes, keys, and so on.</li>
+            <li><strong>🔁 Bruteforce</strong> - brute-forces codes for various barriers (Came/Nice/Ansonic/Holtek/Chamberlain).</li>
+            <li><strong>🚫 Jammer</strong> - jamming (ILLEGAL).</li>
+          </ul>
+
+          <h2 id="ir">🌈 Infrared Port (IR)</h2>
+          <ul>
+            <li><strong>📥 Read</strong> - reads IR codes.</li>
+            <li><strong>📤 Send</strong> - sends IR codes. Supports `.ir` signals.</li>
+            <li><strong>📺 TV / 📽️ PJ / ❄️ AC</strong> - turns off TVs/projectors/air conditioners.</li>
+          </ul>
+
+          <h2 id="gpio">🧩 GPIO</h2>
+          <ul>
+            <h3>NRF24:</h3>
+            <ul>
+              <li><strong>Jammer</strong> - jams 2.4-2.5 GHz (Wi-Fi, BLE, Bluetooth, USB, Video, RadioCH, ALL modes).</li>
+              <li><strong>Spectrum</strong> - 2.4-2.5 GHz analyzer (signal spectrum).</li>
+              <li><strong>Config</strong> - pin configuration.</li>
+            </ul>
+
+            <h3>iButton:</h3>
+            <ul>
+              <li><strong>Read</strong> - reads iButton keys.</li>
+              <li><strong>Write</strong> - writes and rewrites keys.</li>
+            </ul>
+          </ul>
+
+          <h2 id="settings">⚙️ Settings</h2>
+          <ul>
+            <li><strong>🎨 Display color</strong> - inverts colors.</li>
+            <li><strong>⏲️ Standby time</strong> - standby mode (animation).</li>
+            <li><strong>ℹ️ About</strong> - version information.</li>
+          </ul>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

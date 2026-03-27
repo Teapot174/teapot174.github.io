@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Прошивка — ESP-HACK</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/esp-web-tools@10.2.1/dist/web/install-button.js?module"
+    ></script>
+    <script src="js/site-nav.js" defer></script>
+  </head>
+  <body>
+    <div class="lang-switch lang-switch--ru" role="navigation" aria-label="Язык">
+      <div class="lang-switch__track">
+        <span class="lang-switch__thumb" aria-hidden="true"></span>
+        <span class="lang-switch__opt lang-switch__opt--current" aria-current="page">RU</span>
+        <a href="en/page-flash.html" class="lang-switch__opt">EN</a>
+      </div>
+    </div>
+    <div class="shell shell--nav-left">
+      <aside class="sidebar" aria-label="Навигация по разделам">
+        <div class="sidebar__inner">
+          <a class="sidebar__brand" href="https://github.com/Teapot174/ESP-HACK" aria-label="ESP-HACK GitHub">ESP-HACK</a>
+          <nav aria-label="Разделы вики">
+            <div id="site-nav-container"></div>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="content__wrap">
+          <h1>Прошивка ESP32</h1>
+
+          <section class="flash-web-tools" id="web-flasher" aria-label="Веб-прошивальщик">
+            <h2>Прошивка прямо на этом сайте</h2>
+            <p>
+              Нужен браузер <strong>Google Chrome</strong>/<strong>Microsoft Edge</strong>. Подключите ESP32, нажмите кнопку под ваш дисплей и
+              следуйте шагам в окне прошивальщика.
+            </p>
+            <div class="flash-web-tools__row">
+              <esp-web-install-button manifest="data/flasher-manifest-sh.json">
+                <button type="button" slot="activate" class="flash-web-btn">Flash SH1106</button>
+              </esp-web-install-button>
+              <esp-web-install-button manifest="data/flasher-manifest-ssd.json">
+                <button type="button" slot="activate" class="flash-web-btn">Flash SSD1306</button>
+              </esp-web-install-button>
+            </div>
+            <p>
+              В случае неудачи попробуйте способы ниже.
+            </p>
+          </section>
+
+          <h2 id="universal">Web-Flasher (.bin)</h2>
+          <p>
+            Перейдите на <a href="https://esp.huhn.me/">esp.huhn.me</a>, выберите .bin из
+            <a href="https://github.com/Teapot174/ESP-HACK/releases">Releases</a>. Выберите .bin и впишите в адрес <code>0x0</code>. Далее нажмите <strong>PROGRAM</strong>.
+          </p>
+
+          <figure class="flash-install-figure">
+            <img
+              src="images/flash-install.png"
+              alt="Веб-прошивальщик: выбранный файл прошивки, кнопки ERASE и PROGRAM"
+              width="800"
+              height="480"
+            />
+          </figure>
+
+          <h2 id="automatic">Установка через qESPHACK</h2>
+          <p>
+            Зайдите в <a href="page-downloads.html">Downloads</a> и скачайте <strong>qESPHACK.exe</strong>.
+          </p>
+          <p>
+            Далее выберите ваш дисплей, после чего дождитесь окончания установки (прошивки).
+          </p>
+          <p>
+            <strong>qESPHACK</strong> сам находит последний <code>.bin</code> под нужный дисплей и
+            скачивает его.
+          </p>
+
+          <figure class="terminal-shot">
+            <img
+              src="images/qesphack-terminal.png"
+              alt="Терминал qESPHACK: запись прошивки, прогресс, успешное завершение"
+              width="900"
+              height="520"
+            />
+          </figure>
+
+          <figure class="terminal-shot">
+            <img
+              src="images/qesphack-display.png"
+              alt="qESPHACK: выбор типа дисплея"
+              width="900"
+              height="520"
+            />
+          </figure>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

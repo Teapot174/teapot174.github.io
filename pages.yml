@@ -1,0 +1,72 @@
+# Публикует сайт из корня репозитория на GitHub Pages.
+# В репозитории: Settings → Pages → Build and deployment → Source: GitHub Actions.
+
+name: Deploy Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch firmware binaries for web flasher
+        env:
+          FW_SH: https://github.com/Teapot174/ESP-HACK/releases/latest/download/esp-hack_v0.8-sh.bin
+          FW_SSD: https://github.com/Teapot174/ESP-HACK/releases/latest/download/esp-hack_v0.8-ssd.bin
+        run: |
+          mkdir -p firmware
+          curl -fL --retry 3 -o firmware/esp-hack-sh.bin "$FW_SH"
+          curl -fL --retry 3 -o firmware/esp-hack-ssd.bin "$FW_SSD"
+
+      - name: Build latest release ZIP for Downloads
+        env:
+          DL_SH: https://github.com/Teapot174/ESP-HACK/releases/latest/download/esp-hack_v0.8-sh.bin
+          DL_SSD: https://github.com/Teapot174/ESP-HACK/releases/latest/download/esp-hack_v0.8-ssd.bin
+          DL_QESP: https://github.com/Teapot174/ESP-HACK/releases/latest/download/qESPHACK.exe
+          DL_SRC_ZIP: https://github.com/Teapot174/ESP-HACK/archive/refs/heads/main.zip
+          DL_SRC_TAR: https://github.com/Teapot174/ESP-HACK/archive/refs/heads/main.tar.gz
+        run: |
+          set -e
+          mkdir -p downloads/.tmp
+          cd downloads/.tmp
+          curl -fL --retry 3 -o "esp-hack_v0.8-sh.bin" "$DL_SH"
+          curl -fL --retry 3 -o "esp-hack_v0.8-ssd.bin" "$DL_SSD"
+          curl -fL --retry 3 -o "qESPHACK.exe" "$DL_QESP"
+          curl -fL --retry 3 -o "Source code (zip).zip" "$DL_SRC_ZIP"
+          curl -fL --retry 3 -o "Source code (tar.gz).tar.gz" "$DL_SRC_TAR"
+          cd ..
+          rm -f latest.zip
+          zip -r -q latest.zip ".tmp"
+          rm -rf .tmp
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

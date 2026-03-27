@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Modules - ESP-HACK</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/site-nav.js" defer></script>
+  </head>
+  <body>
+    <div class="lang-switch lang-switch--en" role="navigation" aria-label="Language">
+      <div class="lang-switch__track">
+        <span class="lang-switch__thumb" aria-hidden="true"></span>
+        <a href="../page-modules.html" class="lang-switch__opt">RU</a>
+        <span class="lang-switch__opt lang-switch__opt--current" aria-current="page">EN</span>
+      </div>
+    </div>
+    <div class="shell shell--nav-left">
+      <aside class="sidebar" aria-label="Section navigation">
+        <div class="sidebar__inner">
+          <a class="sidebar__brand" href="https://github.com/Teapot174/ESP-HACK" aria-label="ESP-HACK GitHub">ESP-HACK</a>
+          <nav aria-label="Wiki sections">
+            <div id="site-nav-container"></div>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="content__wrap">
+          <h1>Modules</h1>
+
+          <div class="table-wrap">
+            <table class="module-table">
+              <thead>
+                <tr>
+                  <th scope="col">Module</th>
+                  <th scope="col">Pin</th>
+                  <th scope="col">Pin</th>
+                  <th scope="col">Pin</th>
+                  <th scope="col">Pin</th>
+                  <th scope="col">Pin</th>
+                  <th scope="col">Pin</th>
+                  <th scope="col">Pin</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <span class="module-name">
+                      <span class="module-name__icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M2 3.5A1.5 1.5 0 013.5 2h9A1.5 1.5 0 0114 3.5v6A1.5 1.5 0 0112.5 11h-9A1.5 1.5 0 012 9.5v-6z"
+                            stroke="currentColor"
+                            stroke-width="1.2"
+                          />
+                          <path d="M6 13h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                          <path d="M8 11v2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                        </svg>
+                      </span>
+                      Display
+                    </span>
+                  </th>
+                  <td data-pinout-module="display" data-pinout-col="0" data-pinout-slot="VCC">VCC → 3V3</td>
+                  <td data-pinout-module="display" data-pinout-col="1" data-pinout-slot="GND">GND → GND</td>
+                  <td data-pinout-module="display" data-pinout-col="2" data-pinout-slot="SCL">SCL → G22</td>
+                  <td data-pinout-module="display" data-pinout-col="3" data-pinout-slot="SDA">SDA → G21</td>
+                  <td class="cell-empty" data-pinout-module="display" data-pinout-col="4" data-pinout-slot="">—</td>
+                  <td class="cell-empty" data-pinout-module="display" data-pinout-col="5" data-pinout-slot="">—</td>
+                  <td class="cell-empty" data-pinout-module="display" data-pinout-col="6" data-pinout-slot="">—</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span class="module-name">
+                      <span class="module-name__icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="5" cy="8" r="2" stroke="currentColor" stroke-width="1.2" />
+                          <circle cx="11" cy="8" r="2" stroke="currentColor" stroke-width="1.2" />
+                        </svg>
+                      </span>
+                      Buttons
+                    </span>
+                  </th>
+                  <td data-pinout-module="buttons" data-pinout-col="0" data-pinout-slot="UP">UP → G27</td>
+                  <td data-pinout-module="buttons" data-pinout-col="1" data-pinout-slot="DOWN">DOWN → G26</td>
+                  <td data-pinout-module="buttons" data-pinout-col="2" data-pinout-slot="OK">OK → G33</td>
+                  <td data-pinout-module="buttons" data-pinout-col="3" data-pinout-slot="BACK">BACK → G32</td>
+                  <td class="cell-empty" data-pinout-module="buttons" data-pinout-col="4" data-pinout-slot="">—</td>
+                  <td class="cell-empty" data-pinout-module="buttons" data-pinout-col="5" data-pinout-slot="">—</td>
+                  <td class="cell-empty" data-pinout-module="buttons" data-pinout-col="6" data-pinout-slot="">—</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span class="module-name">
+                      <span class="module-name__icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="3" y="5" width="10" height="7" rx="1" stroke="currentColor" stroke-width="1.2" />
+                          <path d="M5 12v1.5M8 12v1.5M11 12v1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                        </svg>
+                      </span>
+                      CC1101
+                    </span>
+                  </th>
+                  <td data-pinout-module="cc1101" data-pinout-col="0" data-pinout-slot="1">1 → GND</td>
+                  <td data-pinout-module="cc1101" data-pinout-col="1" data-pinout-slot="2">2 → 3V3</td>
+                  <td data-pinout-module="cc1101" data-pinout-col="2" data-pinout-slot="3">3 → G4</td>
+                  <td data-pinout-module="cc1101" data-pinout-col="3" data-pinout-slot="4">4 → G5</td>
+                  <td data-pinout-module="cc1101" data-pinout-col="4" data-pinout-slot="5">5 → G18</td>
+                  <td data-pinout-module="cc1101" data-pinout-col="5" data-pinout-slot="6">6 → G23</td>
+                  <td data-pinout-module="cc1101" data-pinout-col="6" data-pinout-slot="7">7 → G19</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span class="module-name">
+                      <span class="module-name__icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M8 2v3M6 5h4M5 14c0-2 1.5-3 3-3s3 1 3 3"
+                            stroke="currentColor"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                          />
+                          <circle cx="8" cy="10" r="3" stroke="currentColor" stroke-width="1.2" />
+                        </svg>
+                      </span>
+                      IR
+                    </span>
+                  </th>
+                  <td data-pinout-module="ir" data-pinout-col="0" data-pinout-slot="IR-TX">IR-TX → G16</td>
+                  <td data-pinout-module="ir" data-pinout-col="1" data-pinout-slot="IR-RX">IR-RX → G35</td>
+                  <td class="cell-empty" data-pinout-module="ir" data-pinout-col="2" data-pinout-slot="">—</td>
+                  <td class="cell-empty" data-pinout-module="ir" data-pinout-col="3" data-pinout-slot="">—</td>
+                  <td class="cell-empty" data-pinout-module="ir" data-pinout-col="4" data-pinout-slot="">—</td>
+                  <td class="cell-empty" data-pinout-module="ir" data-pinout-col="5" data-pinout-slot="">—</td>
+                  <td class="cell-empty" data-pinout-module="ir" data-pinout-col="6" data-pinout-slot="">—</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span class="module-name">
+                      <span class="module-name__icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M4 3v10M8 3v10M12 3v10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                          <path d="M3 6h10M3 10h10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+                        </svg>
+                      </span>
+                      GPIO
+                    </span>
+                  </th>
+                  <td data-pinout-module="gpio" data-pinout-col="0" data-pinout-slot="A">A → G16</td>
+                  <td data-pinout-module="gpio" data-pinout-col="1" data-pinout-slot="B">B → G2</td>
+                  <td data-pinout-module="gpio" data-pinout-col="2" data-pinout-slot="C">C → G18</td>
+                  <td data-pinout-module="gpio" data-pinout-col="3" data-pinout-slot="D">D → G23</td>
+                  <td data-pinout-module="gpio" data-pinout-col="4" data-pinout-slot="E">E → G19</td>
+                  <td data-pinout-module="gpio" data-pinout-col="5" data-pinout-slot="F">F → G25</td>
+                  <td class="cell-empty" data-pinout-module="gpio" data-pinout-col="6" data-pinout-slot="">—</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <span class="module-name">
+                      <span class="module-name__icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M4 4.5h7l2 2v7a1 1 0 01-1 1H4a1 1 0 01-1-1v-8a1 1 0 011-1z"
+                            stroke="currentColor"
+                            stroke-width="1.2"
+                            stroke-linejoin="round"
+                          />
+                          <path d="M11 4.5v2h2" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      SD Card
+                    </span>
+                  </th>
+                  <td data-pinout-module="sdcard" data-pinout-col="0" data-pinout-slot="3v3">3v3 → 3v3</td>
+                  <td data-pinout-module="sdcard" data-pinout-col="1" data-pinout-slot="CS">CS → G15</td>
+                  <td data-pinout-module="sdcard" data-pinout-col="2" data-pinout-slot="MOSI">MOSI → G13</td>
+                  <td data-pinout-module="sdcard" data-pinout-col="3" data-pinout-slot="CLK">CLK → G14</td>
+                  <td data-pinout-module="sdcard" data-pinout-col="4" data-pinout-slot="MISO">MISO → G17</td>
+                  <td data-pinout-module="sdcard" data-pinout-col="5" data-pinout-slot="GND">GND → GND</td>
+                  <td class="cell-empty" data-pinout-module="sdcard" data-pinout-col="6" data-pinout-slot="">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="nrf24">How to Connect NRF24</h2>
+          <p>Check the GPIO pinout, then follow this wiring:</p>
+
+          <div class="nrf-pin-table-wrap nrf-card">
+            <div class="nrf-card__head">
+              <div class="nrf-card__titles">
+                <span class="nrf-card__title">NRF24 Wiring</span>
+              </div>
+              <button type="button" class="nrf-card__copy" aria-label="Copy table">
+                Copy
+              </button>
+            </div>
+            <div class="nrf-card__body">
+              <table class="nrf-table">
+                <thead>
+                  <tr>
+                    <th scope="col">NRF24</th>
+                    <th scope="col">ESP-HACK</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1 (GND)</th>
+                    <td data-nrf-pin="1">GND</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2 (VCC)</th>
+                    <td data-nrf-pin="2">3V3</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3 (CE)</th>
+                    <td data-nrf-pin="3">A (G16)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4 (CSN)</th>
+                    <td data-nrf-pin="4">B (G2)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5 (SCK)</th>
+                    <td data-nrf-pin="5">C (G18)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6 (MOSI)</th>
+                    <td data-nrf-pin="6">D (G23)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7 (MISO)</th>
+                    <td data-nrf-pin="7">E (G19)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script>
+      (function () {
+        var DEFAULT_PINOUT = {
+          modules: {
+            display: { targets: ["3V3", "GND", "G22", "G21", null, null, null] },
+            buttons: { targets: ["G27", "G26", "G33", "G32", null, null, null] },
+            cc1101: { targets: ["GND", "3V3", "G4", "G5", "G18", "G23", "G19"] },
+            ir: { targets: ["G16", "G35", null, null, null, null, null] },
+            gpio: { targets: ["G16", "G2", "G18", "G23", "G19", "G25", null] },
+            sdcard: { targets: ["3V3", "G15", "G13", "G14", "G17", "GND", null] },
+          },
+          nrfWiring: ["GND", "3V3", "A", "B", "C", "D", "E"],
+        };
+
+        var dataBase = location.pathname.indexOf("/en/") !== -1 ? "../" : "";
+
+        function renderModules(pinout) {
+          var modules = (pinout && pinout.modules) || {};
+          document
+            .querySelectorAll("td[data-pinout-module][data-pinout-col]")
+            .forEach(function (td) {
+              var moduleId = td.getAttribute("data-pinout-module") || "";
+              var col = parseInt(td.getAttribute("data-pinout-col") || "0", 10);
+              var slotLabel = td.getAttribute("data-pinout-slot") || "";
+              var target =
+                modules[moduleId] &&
+                Array.isArray(modules[moduleId].targets) &&
+                modules[moduleId].targets.length > col
+                  ? modules[moduleId].targets[col]
+                  : null;
+
+              var hasTarget = target != null && String(target).trim() !== "";
+              if (slotLabel && hasTarget) {
+                td.textContent = slotLabel + " → " + target;
+                td.classList.remove("cell-empty");
+              } else {
+                td.textContent = "—";
+                td.classList.add("cell-empty");
+              }
+            });
+        }
+
+        function renderNrf(pinout) {
+          var nrfWiring = Array.isArray(pinout && pinout.nrfWiring) ? pinout.nrfWiring : DEFAULT_PINOUT.nrfWiring;
+          var gpioTargets =
+            pinout &&
+            pinout.modules &&
+            pinout.modules.gpio &&
+            Array.isArray(pinout.modules.gpio.targets)
+              ? pinout.modules.gpio.targets
+              : [];
+
+          var gpioIndex = { A: 0, B: 1, C: 2, D: 3, E: 4 };
+
+          document.querySelectorAll("td[data-nrf-pin]").forEach(function (td) {
+            var pin = parseInt(td.getAttribute("data-nrf-pin") || "0", 10);
+            var token = nrfWiring[pin - 1];
+
+            if (token === "GND" || token === "3V3") {
+              td.textContent = token;
+              return;
+            }
+
+            if (gpioIndex[token] != null) {
+              var gp = gpioTargets[gpioIndex[token]];
+              td.textContent = token + " (" + (gp ? gp : "—") + ")";
+              return;
+            }
+
+            td.textContent = "—";
+          });
+        }
+
+        function bindCopy() {
+          document
+            .querySelectorAll(".code-block__copy, .nrf-card__copy")
+            .forEach(function (btn) {
+              btn.addEventListener("click", function () {
+                var text;
+                var nrfWrap = btn.closest(".nrf-pin-table-wrap");
+                if (nrfWrap) {
+                  var table = nrfWrap.querySelector("table");
+                  if (!table) return;
+                  var lines = ["NRF24 | ESP-HACK"];
+                  table.querySelectorAll("tbody tr").forEach(function (tr) {
+                    var th = tr.querySelector('th[scope="row"]');
+                    var td = tr.querySelector("td");
+                    if (th && td) {
+                      lines.push(th.textContent.trim() + " > " + td.textContent.trim());
+                    }
+                  });
+                  text = lines.join("\n");
+                } else {
+                  var block = btn.closest(".code-block");
+                  var code = block && block.querySelector("pre code");
+                  if (!code) return;
+                  text = code.textContent;
+                }
+                var label = btn.textContent;
+                var copied = location.pathname.indexOf("/en/") !== -1 ? "Copied" : "Скопировано";
+                function done() {
+                  btn.textContent = copied;
+                  setTimeout(function () {
+                    btn.textContent = label;
+                  }, 1400);
+                }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                  navigator.clipboard.writeText(text).then(done).catch(function () {});
+                }
+              });
+            });
+        }
+
+        function fetchAndRender() {
+          var url = dataBase + "data/pinout-modules.json";
+          return fetch(url, { cache: "no-store" })
+            .then(function (r) {
+              if (!r.ok) throw new Error("pinout fetch HTTP " + r.status);
+              return r.json();
+            })
+            .then(function (pinout) {
+              renderModules(pinout);
+              renderNrf(pinout);
+            })
+            .catch(function () {
+              renderModules(DEFAULT_PINOUT);
+              renderNrf(DEFAULT_PINOUT);
+            });
+        }
+
+        fetchAndRender().then(bindCopy).catch(bindCopy);
+      })();
+    </script>
+  </body>
+</html>

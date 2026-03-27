@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Функции прошивки — ESP-HACK</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/site-nav.js" defer></script>
+  </head>
+  <body>
+    <div class="lang-switch lang-switch--ru" role="navigation" aria-label="Язык">
+      <div class="lang-switch__track">
+        <span class="lang-switch__thumb" aria-hidden="true"></span>
+        <span class="lang-switch__opt lang-switch__opt--current" aria-current="page">RU</span>
+        <a href="en/page-features.html" class="lang-switch__opt">EN</a>
+      </div>
+    </div>
+    <div class="shell shell--nav-left">
+      <aside class="sidebar" aria-label="Навигация по разделам">
+        <div class="sidebar__inner">
+          <a class="sidebar__brand" href="https://github.com/Teapot174/ESP-HACK" aria-label="ESP-HACK GitHub">ESP-HACK</a>
+          <nav aria-label="Разделы вики">
+            <div id="site-nav-container"></div>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="content__wrap">
+
+
+
+
+
+
+
+          <h1>Функции прошивки</h1>
+          <p>
+            Возможности ESP-HACK. Набор функций зависит от версии прошивки и подключённых
+            модулей (CC1101 / NRF24 / IR / SD и т.д.).
+          </p>
+
+          <h2 id="wifi">📶 Wi‑Fi</h2>
+          <ul>
+            <li><strong>📡 Beacon Spam</strong> — генерация “мусорных” WiFi SSID.</li>
+            <li><strong>🕸️ Evil Portal</strong> — точка доступа со страницей-ловушкой (введённые данные отправляются на дисплей).</li>
+            <li><strong>🗺️ Wardriving</strong> — сбор информации о сетях и запись на SD (SSID, RSSI, WPA, MAC).</li>
+            <li><strong>📦 Packets</strong> — анализ пакетов выбранной сети (спектрум).</li>
+          </ul>
+
+          <h2 id="bluetooth">🟦 Bluetooth / BLE</h2>
+          <ul>
+            <li><strong>📣 BLE-Spam</strong> — “спам” BLE рекламой (iOS/Android/Windows).</li>
+            <li><strong>🧪 BadBLE</strong> — эмуляция клавиатуры по BLE (Ducky Script).</li>
+            <li><strong>🖱️ Mouse</strong> — при подключении эмулирует мышь, которая идет по кругу, квадрату и тд.</li>
+          </ul>
+
+<h2 id="subghz">📻 Sub‑GHz (CC1101)</h2>
+<ul>
+  <li><strong>📥 Read</strong> — приём и декодирование сигналов (поддерживаемые протоколы).</li>
+  <li><strong>📤 Send</strong> — отправка декодированных/RAW сигналов. Поддерживает .sub сигналы.</li>
+  <li><strong>🎙️ RAW</strong> — запись RAW сигналов. </li>
+  <li><strong>🔎 Analyzer</strong> — анализ частоты пультов, ключей и тд.</li>
+  <li><strong>🔁 Bruteforce</strong> — перебор кодов для разных шлагбаумов (Came/Nice/Ansonic/Holtek/Chamberlain).</li>
+  <li><strong>🚫 Jammer</strong> — глушение (НЕЗАКОННО).</li>
+</ul>
+
+<h2 id="ir">🌈 Инфракрасный порт (IR)</h2>
+<ul>
+  <li><strong>📥 Read</strong> — чтение ИК-кодов.</li>
+  <li><strong>📤 Send</strong> — отправка ИК-кодов. Поддерживает .ir сигналы.</li>
+  <li><strong>📺 TV / 📽️ PJ / ❄️ AC</strong> — выключение ТВ/проектора/кондиционера.</li>
+</ul>
+
+<h2 id="gpio">🧩 GPIO</h2>
+<ul>
+  <h3>NRF24:</h3>
+  <ul>
+    <li><strong>Jammer</strong> — глушение 2.4-2.5 ГГц (режимы WiFi, BLE, Bluetooth, USB, Video, RadioCH, ALL).</li>
+    <li><strong>Spectrum</strong> — анализатор 2.4-2.5 ГГц (спектрум сигналов).</li>
+    <li><strong>Config</strong> — настройка пинов.</li>
+  </ul>
+  
+  <h3>iButton:</h3>
+  <ul>
+    <li><strong>Read</strong> — считывание iButton ключей.</li>
+    <li><strong>Write</strong> — запись/перезапись ключей.</li>
+  </ul>
+</ul>
+
+<h2 id="settings">⚙️ Настройки</h2>
+<ul>
+  <li><strong>🎨 Цвет дисплея</strong> — инвертирование цветов.</li>
+  <li><strong>⏲️ Standby time</strong> — режим ожидания (анимация).</li>
+  <li><strong>ℹ️ About</strong> — информация о версии.</li>
+</ul>
+        
+
+
+</div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flashing - ESP-HACK</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/esp-web-tools@10.2.1/dist/web/install-button.js?module"
+    ></script>
+    <script src="../js/site-nav.js" defer></script>
+  </head>
+  <body>
+    <div class="lang-switch lang-switch--en" role="navigation" aria-label="Language">
+      <div class="lang-switch__track">
+        <span class="lang-switch__thumb" aria-hidden="true"></span>
+        <a href="../page-flash.html" class="lang-switch__opt">RU</a>
+        <span class="lang-switch__opt lang-switch__opt--current" aria-current="page">EN</span>
+      </div>
+    </div>
+    <div class="shell shell--nav-left">
+      <aside class="sidebar" aria-label="Section navigation">
+        <div class="sidebar__inner">
+          <a class="sidebar__brand" href="https://github.com/Teapot174/ESP-HACK" aria-label="ESP-HACK GitHub">ESP-HACK</a>
+          <nav aria-label="Wiki sections">
+            <div id="site-nav-container"></div>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="content__wrap">
+          <h1>ESP32 Flashing</h1>
+
+          <section class="flash-web-tools" id="web-flasher" aria-label="Web flasher">
+            <h2>Flash directly on this site</h2>
+            <p>
+              You need <strong>Google Chrome</strong> or <strong>Microsoft Edge</strong>. Connect your ESP32, press the button for your display, and follow the steps in the flasher window.
+            </p>
+            <div class="flash-web-tools__row">
+              <esp-web-install-button manifest="../data/flasher-manifest-sh.json">
+                <button type="button" slot="activate" class="flash-web-btn">Flash SH1106</button>
+              </esp-web-install-button>
+              <esp-web-install-button manifest="../data/flasher-manifest-ssd.json">
+                <button type="button" slot="activate" class="flash-web-btn">Flash SSD1306</button>
+              </esp-web-install-button>
+            </div>
+            <p>
+              If it fails, try the methods below.
+            </p>
+          </section>
+
+          <h2 id="universal">Web Flasher (.bin)</h2>
+          <p>
+            Go to <a href="https://esp.huhn.me/">esp.huhn.me</a>, select the .bin file from
+            <a href="https://github.com/Teapot174/ESP-HACK/releases">Releases</a>. Select the .bin file and enter <code>0x0</code> in the address field. Then press <strong>PROGRAM</strong>.
+          </p>
+
+          <figure class="flash-install-figure">
+            <img
+              src="../images/flash-install.png"
+              alt="Web flasher with selected firmware file and ERASE and PROGRAM buttons"
+              width="800"
+              height="480"
+            />
+          </figure>
+
+          <h2 id="automatic">Installation via qESPHACK</h2>
+          <p>
+            Go to <a href="page-downloads.html">Downloads</a> and download <strong>qESPHACK.exe</strong>.
+          </p>
+          <p>
+            Then select your display and wait for the installation to finish.
+          </p>
+          <p>
+            <strong>qESPHACK</strong> automatically finds the latest <code>.bin</code> for the required display and downloads it.
+          </p>
+
+          <figure class="terminal-shot">
+            <img
+              src="../images/qesphack-terminal.png"
+              alt="qESPHACK terminal showing firmware writing progress and successful completion"
+              width="900"
+              height="520"
+            />
+          </figure>
+
+          <figure class="terminal-shot">
+            <img
+              src="../images/qesphack-display.png"
+              alt="qESPHACK display type selection"
+              width="900"
+              height="520"
+            />
+          </figure>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

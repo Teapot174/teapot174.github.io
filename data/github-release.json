@@ -1,0 +1,12 @@
+{
+  "owner": "DreinRaid",
+  "repo": "esphacktest",
+  "downloadOwner": "Teapot174",
+  "downloadRepo": "ESP-HACK",
+  "downloadReleasesPageUrl": "https://github.com/Teapot174/ESP-HACK/releases",
+  "useGithubApi": true,
+  "changelogEnabled": true,
+  "releasesPageUrl": "https://github.com/Teapot174/ESP-HACK/releases",
+  "sectionTitle": "Assets",
+  "excludeNameSubstrings": []
+}
