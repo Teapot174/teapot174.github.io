@@ -48,17 +48,17 @@
           ],
           "children": [
             {
-              "label": "📶 Wi‑Fi",
+              "label": "📶 WiFi",
               "href": "page-features.html#wifi",
               "type": "link"
             },
             {
-              "label": "📱 Bluetooth / BLE",
+              "label": "📱 Bluetooth",
               "href": "page-features.html#bluetooth",
               "type": "link"
             },
             {
-              "label": "📻 Sub‑GHz (CC1101)",
+              "label": "📻 Sub‑GHz",
               "href": "page-features.html#subghz",
               "type": "link"
             },
@@ -68,7 +68,7 @@
               "type": "link"
             },
             {
-              "label": "🧩 GPIO / модули",
+              "label": "🧩 GPIO",
               "href": "page-features.html#gpio",
               "type": "link"
             },
