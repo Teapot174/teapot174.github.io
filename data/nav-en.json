@@ -11,10 +11,9 @@
           "href": "page-flash.html",
           "openOn": [{ "file": "page-flash.html" }],
           "children": [
-            { "label": "Web flasher (this site)", "href": "page-flash.html#web-flasher" },
-            { "label": "Web flasher (external)", "href": "page-flash.html#universal" },
-            { "label": "qESPHACK (automatic)", "href": "page-flash.html#automatic" },
-            { "label": "qESPHACK", "href": "page-flash.html#qesphack" }
+            { "label": "Wiki-Flasher", "href": "page-flash.html#wiki-flasher" },
+            { "label": "Web-Flasher", "href": "page-flash.html#web-flasher" },
+            { "label": "qESP-HACK", "href": "page-flash.html#qesphack" }
           ]
         },
         {

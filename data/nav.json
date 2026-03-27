@@ -20,18 +20,18 @@
           ],
           "children": [
             {
-              "label": "Веб-флешер",
+              "label": "Wiki-Flasher",
+              "href": "page-flash.html#wiki-flasher",
+              "type": "link"
+            },
+            {
+              "label": "Web-Flasher",
               "href": "page-flash.html#web-flasher",
               "type": "link"
             },
             {
-              "label": "Универсальный способ",
-              "href": "page-flash.html#universal",
-              "type": "link"
-            },
-            {
               "label": "qESP-HACK",
-              "href": "page-flash.html#automatic",
+              "href": "page-flash.html#qesphack",
               "type": "link"
             }
           ]
