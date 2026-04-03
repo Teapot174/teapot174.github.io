@@ -222,13 +222,23 @@
       a.addEventListener("click", function (e) {
         var href = a.getAttribute("href") || "";
         var file = href.split("#")[0].toLowerCase();
+        var wrap = a.closest(".nav-expandable");
+        if (!wrap) return;
+        var btn = wrap.querySelector(".nav-expandable__toggle");
+        var panelId = btn ? btn.getAttribute("aria-controls") : "";
+        var panel = panelId ? document.getElementById(panelId) : null;
         // If link would navigate within the same page file, use it as a toggle.
         if (file && file === cf) {
           e.preventDefault();
           e.stopPropagation();
-          var wrap = a.closest(".nav-expandable");
-          if (!wrap) return;
-          var btn = wrap.querySelector(".nav-expandable__toggle");
+          togglePanelFromBtn(btn);
+          return;
+        }
+        // On Home/Downloads keep other submenus collapsed by default, but allow
+        // opening a section from its header before navigating to the section page.
+        if (shouldHideAllPanels(cf) && btn && panel && !panel.classList.contains("nav-sub--open")) {
+          e.preventDefault();
+          e.stopPropagation();
           togglePanelFromBtn(btn);
         }
       });
