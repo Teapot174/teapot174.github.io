@@ -234,13 +234,6 @@
           togglePanelFromBtn(btn);
           return;
         }
-        // On Home/Downloads keep other submenus collapsed by default, but allow
-        // opening a section from its header before navigating to the section page.
-        if (shouldHideAllPanels(cf) && btn && panel && !panel.classList.contains("nav-sub--open")) {
-          e.preventDefault();
-          e.stopPropagation();
-          togglePanelFromBtn(btn);
-        }
       });
     });
   }
