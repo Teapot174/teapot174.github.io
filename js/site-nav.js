@@ -46,6 +46,10 @@
     return p.file === cf;
   }
 
+  function shouldHideAllPanels(cf) {
+    return cf === "index.html" || cf === "page-downloads.html";
+  }
+
   var chevronSvg =
     '<svg class="nav-expandable__chevron" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 1L7 5l-4.5 4V1z" fill="currentColor"/></svg>';
 
@@ -260,7 +264,11 @@
 
     var currentOpenPanel = document.querySelector(".nav-sub.nav-sub--open");
     var storedPanelId = loadStoredOpenPanel();
-    var panelIdToOpen = currentOpenPanel && currentOpenPanel.id ? currentOpenPanel.id : storedPanelId;
+    var panelIdToOpen = shouldHideAllPanels(cf)
+      ? ""
+      : currentOpenPanel && currentOpenPanel.id
+        ? currentOpenPanel.id
+        : storedPanelId;
 
     document.querySelectorAll(".nav-expandable__toggle").forEach(function (btn) {
       var panelId = btn.getAttribute("aria-controls");
