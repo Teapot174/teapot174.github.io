@@ -53,7 +53,7 @@
               "type": "link"
             },
             {
-              "label": "🟦 Bluetooth / BLE",
+              "label": "🖱️ Bluetooth / BLE",
               "href": "page-features.html#bluetooth",
               "type": "link"
             },
@@ -63,7 +63,7 @@
               "type": "link"
             },
             {
-              "label": "🌈 IR",
+              "label": "📺 IR",
               "href": "page-features.html#ir",
               "type": "link"
             },
@@ -73,7 +73,7 @@
               "type": "link"
             },
             {
-              "label": "⚙️ Настройки",
+              "label": "⚙️ Settitngs",
               "href": "page-features.html#settings",
               "type": "link"
             }
