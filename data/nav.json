@@ -119,6 +119,11 @@
           ],
           "children": [
             {
+              "label": "Ошибки",
+              "href": "page-modules.html#errors",
+              "type": "link"
+            },
+            {
               "label": "Как подключить NRF24",
               "href": "page-modules.html#nrf24",
               "type": "link"

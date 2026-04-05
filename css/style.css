@@ -793,6 +793,38 @@ h4 {
   border-bottom: none;
 }
 
+.errors-table {
+  table-layout: fixed;
+}
+
+.errors-table col.errors-table__code {
+  width: 96px;
+}
+
+.errors-table col.errors-table__desc {
+  width: 42%;
+}
+
+.errors-table thead th:first-child,
+.errors-table tbody th[scope="row"] {
+  width: 96px;
+  white-space: nowrap;
+}
+
+.errors-table thead th:nth-child(2),
+.errors-table tbody td:nth-child(2) {
+  border-right: 1px solid var(--gh-border);
+}
+
+.errors-table tbody th[scope="row"],
+.errors-table tbody td {
+  font-family: var(--font-sans);
+}
+
+.errors-table tbody td {
+  color: var(--gh-fg);
+}
+
 @media (max-width: 400px) {
   .nrf-card__head {
     flex-direction: column;

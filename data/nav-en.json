@@ -50,6 +50,7 @@
           "href": "page-modules.html",
           "openOn": [{ "file": "page-modules.html" }],
           "children": [
+            { "label": "Errors", "href": "page-modules.html#errors" },
             { "label": "NRF24 wiring", "href": "page-modules.html#nrf24" }
           ]
         },

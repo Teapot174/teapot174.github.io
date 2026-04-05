@@ -183,6 +183,51 @@
             </table>
           </div>
 
+          <h2 id="errors">Errors</h2>
+          <div class="nrf-pin-table-wrap nrf-card">
+            <div class="nrf-card__head">
+              <div class="nrf-card__titles">
+                <span class="nrf-card__title">Error Table</span>
+              </div>
+              <button type="button" class="nrf-card__copy" aria-label="Copy error table">
+                Copy
+              </button>
+            </div>
+            <div class="nrf-card__body">
+              <table class="nrf-table errors-table" data-copy-format="markdown">
+                <colgroup>
+                  <col class="errors-table__code" />
+                  <col class="errors-table__desc" />
+                  <col class="errors-table__fix" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">Error code</th>
+                    <th scope="col">Problem</th>
+                    <th scope="col">Possible fix</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">0x000</th>
+                    <td>SD-Card initialization failed</td>
+                    <td>Format the SD card as FAT32 or replace it.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">0x001</th>
+                    <td>CC1101 initialization failed</td>
+                    <td>Check wiring and module functionality.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">0x002</th>
+                    <td>NRF24 initialization failed</td>
+                    <td>Verify chosen pins/connections and reboot the device.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <h2 id="nrf24">How to Connect NRF24</h2>
           <p>Check the GPIO pinout, then follow this wiring:</p>
 
@@ -322,14 +367,33 @@
                 if (nrfWrap) {
                   var table = nrfWrap.querySelector("table");
                   if (!table) return;
-                  var lines = ["NRF24 | ESP-HACK"];
-                  table.querySelectorAll("tbody tr").forEach(function (tr) {
-                    var th = tr.querySelector('th[scope="row"]');
-                    var td = tr.querySelector("td");
-                    if (th && td) {
-                      lines.push(th.textContent.trim() + " > " + td.textContent.trim());
-                    }
-                  });
+                  var lines;
+                  if (table.getAttribute("data-copy-format") === "markdown") {
+                    lines = ["| Error code | ❌ Problem | 🛠️ Possible fix |", "|------------|-----------|------------------|"];
+                    table.querySelectorAll("tbody tr").forEach(function (tr) {
+                      var cells = tr.querySelectorAll("th, td");
+                      if (cells.length === 3) {
+                        lines.push(
+                          "| " +
+                            cells[0].textContent.trim() +
+                            " | " +
+                            cells[1].textContent.trim() +
+                            " | " +
+                            cells[2].textContent.trim() +
+                            " |"
+                        );
+                      }
+                    });
+                  } else {
+                    lines = ["NRF24 | ESP-HACK"];
+                    table.querySelectorAll("tbody tr").forEach(function (tr) {
+                      var th = tr.querySelector('th[scope="row"]');
+                      var td = tr.querySelector("td");
+                      if (th && td) {
+                        lines.push(th.textContent.trim() + " > " + td.textContent.trim());
+                      }
+                    });
+                  }
                   text = lines.join("\n");
                 } else {
                   var block = btn.closest(".code-block");

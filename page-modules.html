@@ -183,6 +183,51 @@
             </table>
           </div>
 
+          <h2 id="errors">Ошибки</h2>
+          <div class="nrf-pin-table-wrap nrf-card">
+            <div class="nrf-card__head">
+              <div class="nrf-card__titles">
+                <span class="nrf-card__title">Таблица ошибок</span>
+              </div>
+              <button type="button" class="nrf-card__copy" aria-label="Копировать таблицу ошибок">
+                Копировать
+              </button>
+            </div>
+            <div class="nrf-card__body">
+              <table class="nrf-table errors-table" data-copy-format="markdown" data-copy-locale="ru">
+                <colgroup>
+                  <col class="errors-table__code" />
+                  <col class="errors-table__desc" />
+                  <col class="errors-table__fix" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">Код ошибки</th>
+                    <th scope="col">Описание ошибки</th>
+                    <th scope="col">Возможное решение</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">0x000</th>
+                    <td>Ошибка инициализации SD-Карты</td>
+                    <td>Отформатируйте SD-карту в FAT32 либо замените её.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">0x001</th>
+                    <td>Ошибка инициализации CC1101</td>
+                    <td>Проверьте подключение и работоспособность модуля.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">0x002</th>
+                    <td>Ошибка инициализации NRF24</td>
+                    <td>Проверьте правильность выбора пинов, соединений и перезагрузите устройство.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <h2 id="nrf24">Как подключить NRF24</h2>
           <p>Посмотрите распиновку GPIO, после чего следуйте этой распиновке:</p>
 
@@ -322,14 +367,46 @@
                 if (nrfWrap) {
                   var table = nrfWrap.querySelector("table");
                   if (!table) return;
-                  var lines = ["NRF24 | ESP-HACK"];
-                  table.querySelectorAll("tbody tr").forEach(function (tr) {
-                    var th = tr.querySelector('th[scope="row"]');
-                    var td = tr.querySelector("td");
-                    if (th && td) {
-                      lines.push(th.textContent.trim() + " > " + td.textContent.trim());
+                  var lines;
+                  if (table.getAttribute("data-copy-format") === "markdown") {
+                    if (table.getAttribute("data-copy-locale") === "ru") {
+                      lines = [
+                        "| Код ошибки | Описание ошибки | Возможное решение |",
+                        "|------------|-----------|------------------|",
+                        "| **0x000**  | Ошибка инициализации SD-Карты | Отформатируйте SD-карту в FAT32 либо замените её. |",
+                        "| **0x001**  | Ошибка инициализации CC1101 | Проверьте подключение и работоспособность модуля. |",
+                        "| **0x002**  | Ошибка инициализации NRF24 | Проверьте правильность выбора пинов, соединений и перезагрузите устройство. |",
+                      ];
+                    } else {
+                      lines = [
+                        "| Error code | Problem | Possible fix |",
+                        "|------------|-----------|------------------|",
+                      ];
+                      table.querySelectorAll("tbody tr").forEach(function (tr) {
+                        var cells = tr.querySelectorAll("th, td");
+                        if (cells.length === 3) {
+                          lines.push(
+                            "| " +
+                              cells[0].textContent.trim() +
+                              " | " +
+                              cells[1].textContent.trim() +
+                              " | " +
+                              cells[2].textContent.trim() +
+                              " |"
+                          );
+                        }
+                      });
                     }
-                  });
+                  } else {
+                    lines = ["NRF24 | ESP-HACK"];
+                    table.querySelectorAll("tbody tr").forEach(function (tr) {
+                      var th = tr.querySelector('th[scope="row"]');
+                      var td = tr.querySelector("td");
+                      if (th && td) {
+                        lines.push(th.textContent.trim() + " > " + td.textContent.trim());
+                      }
+                    });
+                  }
                   text = lines.join("\n");
                 } else {
                   var block = btn.closest(".code-block");
