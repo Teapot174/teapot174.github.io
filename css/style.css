@@ -811,6 +811,10 @@ h4 {
   white-space: nowrap;
 }
 
+.errors-table thead th:first-child {
+  border-right: 1px solid var(--gh-border);
+}
+
 .errors-table thead th:nth-child(2),
 .errors-table tbody td:nth-child(2) {
   border-right: 1px solid var(--gh-border);
