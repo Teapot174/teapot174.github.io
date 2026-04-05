@@ -55,6 +55,17 @@
           ]
         },
         {
+          "type": "expand",
+          "id": "developers",
+          "label": "Developer Hub",
+          "href": "page-developers.html",
+          "openOn": [{ "file": "page-developers.html" }],
+          "children": [
+            { "label": "Pinout", "href": "page-developers.html#pinout" },
+            { "label": "GPIO Peculiarity", "href": "page-developers.html#gpio-feature" }
+          ]
+        },
+        {
           "type": "link",
           "label": "Downloads",
           "href": "page-downloads.html"

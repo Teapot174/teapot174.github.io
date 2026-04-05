@@ -131,6 +131,29 @@
           ]
         },
         {
+          "type": "expand",
+          "id": "developers",
+          "label": "Developer Hub",
+          "href": "page-developers.html",
+          "openOn": [
+            {
+              "file": "page-developers.html"
+            }
+          ],
+          "children": [
+            {
+              "label": "Распиновка",
+              "href": "page-developers.html#pinout",
+              "type": "link"
+            },
+            {
+              "label": "Особенность GPIO",
+              "href": "page-developers.html#gpio-feature",
+              "type": "link"
+            }
+          ]
+        },
+        {
           "type": "link",
           "label": "Downloads",
           "href": "page-downloads.html"

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Developer Hub • ESP-HACK</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/site-nav.js?v=5" defer></script>
+  </head>
+  <body>
+    <div class="lang-switch lang-switch--ru" role="navigation" aria-label="Язык">
+      <div class="lang-switch__track">
+        <span class="lang-switch__thumb" aria-hidden="true"></span>
+        <span class="lang-switch__opt lang-switch__opt--current" aria-current="page">RU</span>
+        <a href="en/page-developers.html" class="lang-switch__opt">EN</a>
+      </div>
+    </div>
+    <div class="shell shell--nav-left">
+      <aside class="sidebar" aria-label="Навигация по разделам">
+        <div class="sidebar__inner">
+          <a class="sidebar__brand" href="https://github.com/Teapot174/ESP-HACK" aria-label="ESP-HACK GitHub">ESP-HACK</a>
+          <nav aria-label="Разделы вики">
+            <div id="site-nav-container"></div>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="content__wrap">
+          <h1>Для Разработчиков</h1>
+
+          <h2 id="pinout">Распиновка</h2>
+          <div class="code-block">
+            <button type="button" class="code-block__copy" aria-label="Копировать распиновку">Копировать</button>
+            <pre><code>// Display
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_ADR 0x3C
+#define OLED_RESET -1
+#define OLED_SCL 22
+#define OLED_SDA 21
+
+// Buttons
+#define BUTTON_UP 27    // Up
+#define BUTTON_DOWN 26  // Down
+#define BUTTON_OK 33    // OK
+#define BUTTON_BACK 32  // Back
+
+// SD Card
+#define SD_CS 15
+#define SD_MOSI 13
+#define SD_CLK 14
+#define SD_MISO 17
+
+// CC1101
+#define CC1101_GDO0 4
+#define CC1101_CS 5
+#define CC1101_SCK 18
+#define CC1101_MOSI 23
+#define CC1101_MISO 19
+
+// Infrared
+#define IR_TRANSMITTER 16
+#define IR_RECIVER 35
+
+// GPIO
+#define GPIO_A 16
+#define GPIO_B 2
+#define GPIO_C 18
+#define GPIO_D 23
+#define GPIO_E 19
+#define GPIO_F 25</code></pre>
+          </div>
+
+          <h2 id="gpio-feature">Особенность GPIO</h2>
+          <p>
+            GPIO использует 3 свободный пина — пин A (G16, используется IR-TX) который можно спокойно использовать, B (G2), F (G25) и пины C, D, E — это пины VSPI и они делятся с CC1101 по CS пину (У CC1101 это G5), поэтому сделайте выбор другого модуля в GPIO по CS пину.
+          </p>
+        </div>
+      </main>
+    </div>
+    <script>
+      (function () {
+        document.querySelectorAll(".code-block__copy").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var block = btn.closest(".code-block");
+            var code = block && block.querySelector("pre code");
+            if (!code) return;
+            var text = code.textContent;
+            var label = btn.textContent;
+            function done() {
+              btn.textContent = "Скопировано";
+              setTimeout(function () {
+                btn.textContent = label;
+              }, 1400);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text).then(done).catch(function () {});
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
