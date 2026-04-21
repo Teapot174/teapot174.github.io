@@ -28,6 +28,7 @@
             { "label": "📻 SubGHz", "href": "page-features.html#subghz" },
             { "label": "📺 Infrared", "href": "page-features.html#ir" },
             { "label": "🧩 GPIO", "href": "page-features.html#gpio" },
+            { "label": "🎮 Games", "href": "page-features.html#games" },
             { "label": "⚙️ Settings", "href": "page-features.html#settings" }
           ]
         },
