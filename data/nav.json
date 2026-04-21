@@ -73,6 +73,11 @@
               "type": "link"
             },
             {
+              "label": "🎮 Games",
+              "href": "page-features.html#games",
+              "type": "link"
+            },
+            {
               "label": "⚙️ Settitngs",
               "href": "page-features.html#settings",
               "type": "link"
